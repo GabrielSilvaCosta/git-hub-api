@@ -11,24 +11,24 @@ const Home = () => {
   const [user, setUser] = useState<UserProps | null>(null);
   const [error, setError] = useState(false);
 
-  // função carregar o usuario da api gitHub
+  
   const loadUser = async (userName: string) => {
     
     setError(false);
     setUser(null);
-    // procurar pelo nome do usuario
+    
     const res = await fetch(`https://api.github.com/users/${userName}`);
 
     const data = await res.json();
     
 
-    // error se nao encontra usuario api
+    
     if(res.status === 404) {
       setError(true);
       return;
     }
 
-    // vamos desctruturi de objeto tudo que tem no type
+
     const { avatar_url, login,  location,  followers, following } = data
 
     const userData: UserProps = {
@@ -39,15 +39,14 @@ const Home = () => {
       following,
     };
 
-     // usuario agora e o userData
+     
     setUser(userData);
 
   };
 
   return (
     <div>
-      {/* loadUser do search vai ser igual loadUser no app */}
-      {/* se o usuario esta disponivel faz o resgate da api, e exibi o nome do usuario na tela */}
+     
       <Search loadUser={loadUser} />
       {user && <User {...user} />}
       {error && <Error />}
