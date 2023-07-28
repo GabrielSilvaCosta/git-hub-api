@@ -21,8 +21,6 @@ const Home = () => {
 
     const data = await res.json();
     
-
-    
     if(res.status === 404) {
       setError(true);
       return;
