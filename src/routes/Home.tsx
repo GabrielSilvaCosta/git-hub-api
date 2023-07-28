@@ -7,7 +7,7 @@ import Error from "../components/Error";
 
 
 const Home = () => {
-  // vamos dizer que userProps ou null
+  
   const [user, setUser] = useState<UserProps | null>(null);
   const [error, setError] = useState(false);
 
