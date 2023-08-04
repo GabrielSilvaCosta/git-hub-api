@@ -1,6 +1,5 @@
 import Search from "../components/Search";
 import { useState } from "react";
-// vamos importa os tipo que definimos
 import { UserProps } from "../types/user";
 import User from "../components/User";
 import Error from "../components/Error";
